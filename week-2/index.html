@@ -1,42 +1,30 @@
-<h2 id="week-2">Week 2</h2>
+<nav>
+  <a href="../index.html">FEWD 37</a> &middot;
+  <a href="../week-1/index.html">Prev week</a> &middot;
+  <a href="../week-3/index.html">Next week</a>
+</nav>
 
-<h3>
-  Homework: ACME Corp
-</h3>
+<h1 id="week-2">Week 2</h1>
 
-<p>
-  Build the homepage for Acme Anvil Corporation. It should end up looking like this:
-</p>
-
-<a href="http://cloud.avandamiri.com/image/1H04140w312u/Screen%20Shot%202015-07-30%20at%2011.07.06%20PM.png" target="_blank">
-  <img src="http://cloud.avandamiri.com/image/1H04140w312u/Screen%20Shot%202015-07-30%20at%2011.07.06%20PM.png">
-</a>
+<h2>Resources</h2>
 
 <ul>
-  <li>Here's the URL for the image: <code>http://cloud.avandamiri.com/image/423B1n2p2v0U/acme-corp.jpg</code></li>
-  <li>Here's the URL for the background image: <code>http://cloud.avandamiri.com/image/3N410e2Q2Z3F/background.png</code></li>
-  <li>
-    To center a container (e.g. <code>&lt;main&gt;</code>) set <code>margin-left</code>
-    and <code>margin-right</code> to <code>auto</code> and set a <code>width</code>.
-    You can set the width to a percentage like 60% or so. Try also playing with <code>max-width</code>.
-  </li>
-</ul>
-
-<p>
-  We didn't get to finish building our profiles today. It would have been nice to
-  practice a bit more. I finished mine and posted it for you to use as a reference when
-  working on the homework. Just View > Developer > View Source to see my code.
-  <a href="http://avandamiri.com/my-fewd-34/" target="_blank">Avand's FEWD 34 profile</a>.
-</p>
-
-<h3>Resources</h3>
-
-<ul>
+  <!--
   <li><a href="http://cloud.avandamiri.com/image/321P3C1g3k1f" target="_blank">Picture of HTML pop quiz whiteboard</a></li>
   <li><a href="http://www.csszengarden.com/" target="_blank">CSS Zen Garden</a></li>
   <li><a href="http://learnlayout.com" target="_blank">Learn Layout</a></li>
   <li><a href="http://learn.shayhowe.com/" target="_blank">Learn from Shay Howe (my friend in Chicago)</a></li>
   <li><a href="homework/week-1" target="_blank">Solution to Homework 1, Whales</a></li>
+-->
+  <li><a href="acme-corp/index.html" style="font-weight: bold;">ACME Corp Solution</a></li>
+  <li>
+    In-class examples:
+    <ul>
+      <li>
+        <a href="examples/float.html">Float</a>
+      </li>
+    </ul>
+  </li>
   <li>
     <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">
       MDN CSS reference
@@ -80,15 +68,34 @@
   </li>
 </ul>
 
-<h3>Submitting Homework</h3>
+<h2>Intro to HTML</h2>
+
+<p>
+  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">MDN</a>
+  has a <strong>great</strong> reference of all the HTML tags used on the web.
+  Here's some HTML tags you'll probably use a lot:
+</p>
 
 <ul>
-  <li>Create a folder in your GitHub repo for homework. (maybe call it "homework")</li>
-  <li>Put your homework files in the homework folder</li>
-  <li>Commit and sync your changes to GitHub</li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p">p (paragraph)</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1">h1 - h6 (headers)</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">ul (unordered list)</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li">li (list item)</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">a (anchor)</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">img (image)</a>
+  </li>
 </ul>
-
-<h3>&lt;head&gt;</h3>
 
 <p>
   There are a bunch of things that make up a web page aside from the actual
@@ -108,7 +115,7 @@
   and page content goes in the <code>&lt;body&gt;</code> tag.
 </p>
 
-<h3>Positioning </h3>
+<h2>Positioning </h2>
 
 <p>
   When you use anything other that <code>static</code> (the default value for position),
@@ -127,6 +134,13 @@
     </p>
   </li>
   <li>
+    <code>position: fixed;</code>
+    <p>
+      Positions with respect to the browser window (useful for sticky headers and stuff).
+      Use with caution because it will probably cover text!
+    </p>
+  </li>
+  <li>
     <code>position: relative;</code>
     <p>
       Positions relative to where it normally is.
@@ -139,11 +153,49 @@
       relative to it's parent (the one that has <code>position: relative</code>).
     </p>
   </li>
-  <li>
-    <code>position: fixed;</code>
-    <p>
-      Positions with respect to the browser window (useful for sticky headers and stuff).
-      Use with caution because it will probably cover text!
-    </p>
-  </li>
 </ul>
+
+<h2>Submitting Homework</h2>
+
+<ul>
+  <li>Create a folder in your GitHub repo for homework. (maybe call it "homework")</li>
+  <li>Put your homework files in the homework folder</li>
+  <li>Commit and sync your changes to GitHub</li>
+  <li>Add a link to your homework on your main GitHub page</li>
+</ul>
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/6Z8I8sOinUo" frameborder="0" allowfullscreen></iframe>
+
+<!--
+
+<ul>
+  <li><a target="_blank" href="http://www.crockford.com/wrrrld/color.html">HTML Colors</a></li>
+  <li><a target="_blank" href="http://www.w3.org/TR/CSS2/propidx.html">W3C CSS Properties Table</a></li>
+  <li><a target="_blank" href="https://css-tricks.com/">CSS Tricks</a></li>
+</ul>
+
+
+
+<p>
+  We didn't get to finish building our profiles today. It would have been nice to
+  practice a bit more. I finished mine and posted it for you to use as a reference when
+  working on the homework. Just View > Developer > View Source to see my code.
+  <a href="http://avandamiri.com/my-fewd-34/" target="_blank">Avand's FEWD 34 profile</a>.
+</p>
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<br>
+<br>
+<h2>In-Class Photos</h2>
+<div class="carousel-container" id="3">  <!-- id is total number of photos for carousel -->
+  <a href="images/photo_1.jpg" class="img-link" target="_blank"><img src="images/photo_1.jpg" class="carousel-img"></a>
+  <div id="left-nav">
+    <i class="fa fa-chevron-circle-left" id="left-arrow"></i>
+  </div>
+  <div id="right-nav">
+    <i class="fa fa-chevron-circle-right" id="right-arrow"></i>
+  </div>
+</div>
+
+<link rel="stylesheet" href="../styles/all.css" media="screen" title="All styles" charset="utf-8">
+<script type="text/javascript" src="../scripts/carousels.js"></script>

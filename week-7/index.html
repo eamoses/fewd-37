@@ -1,109 +1,126 @@
-<h2 id="week-7">Week 7</h2>
+<meta charset="utf-8">
 
-<h3>Homework</h3>
+<nav>
+  <a href="../index.html">FEWD 37</a> &middot;
+  <a href="../week-6/index.html">Prev week</a> &middot;
+  <a href="../week-8/index.html">Next week</a>
+</nav>
 
-<a href="http://cloud.avandamiri.com/image/3S2m0M2L1S0j/Screen%20Shot%202015-09-03%20at%2011.22.08%20PM.png">
-  <img src="http://cloud.avandamiri.com/image/3S2m0M2L1S0j/Screen%20Shot%202015-09-03%20at%2011.22.08%20PM.png" alt="Homework Week 7" width="400" />
-</a>
+<h1>Week 7</h1>
 
-<p>
-  Your task this week is to build the site above (sorry it doesn't look very good).
-  When you load the page, you won't see anything but a button. Clicking the button should
-  loop through my favorite movies and add them to the page. For this homework you'll need:
-</p>
+<h2>Examples</h2>
 
 <ul>
-  <li>An event listener (to wire up the button)</li>
-  <li>A loop (to go through each movie)</li>
-  <li>Lots of DOM manipulation (creating elements, appending them, etc.)</li>
+  <li><a href="examples/toggle-class.html">Toggling a class with classList.toggle()</a></li>
 </ul>
 
-<p>
-  If you can successfully complete this assignment then the last thing to learn is how to
-  get results from an API, which is coming up next!
-</p>
+<h2>XMLHttpRequest</h2>
 
 <p>
-  Good luck!
+  I don't expect you to ever write this code, but here's the code that allows
+  your browser to make a request to a server for data without reloading the page:
 </p>
 
-<h3>Resources</h3>
+<pre><code>// Create a new request
+var xhr = new XMLHttpRequest();
 
-<ul>
-  <li><a href="week-7/movies.html">Movies Starting Point</a></li>
-  <li><a href="week-7/todo-list-csv.html">Todo List CSV Starting Point</a></li>
-  <li><a href="week-7/todo-list-csv-solution.html">Todo List CSV Starting Point</a></li>
-  <li><a href="week-7/say-hello-arrays.html">Say Hello with Arrays</a></li>
-  <!--
-  <li>
-    <a href="spreadsheet.html">Spreadsheet starting point</a>
-    (<a href="spreadsheet-solution.html">Solution</a>)
-  </li>
-  <li>
-    <a href="arrays-query.html">Sorting a list exercise from class</a>
-  </li>
-  <li>Homework: <a href="for-loops-solution.html">Solution</a> (<a href="for-loops-solution-refactored.html">Refactored</a>)
-    <li>Day 1 In-Class Exercises (<a href="http://cloud.avandamiri.com/192m1n2a163D">Download ZIP</a>)
-      <ul>
-        <li><a href="conditionals.html">Conditionals</a></li>
-      </ul>
-    </li>
-  </li>
-  -->
-</ul>
+// Tell request that whenever readyState changes, call event handler
+xhr.addEventListener("readystatechange", stateChanged);
 
-<h3>Arrays</h3>
+function stateChanged(event) {
+  // If successfully returned back, then...
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    // Success! Call the callback function!
+    // But first, parse the response as JSON
+    var results = JSON.parse(xhr.response);
+    var movies = results["Search"];
 
-<p>In javascript, when we want to store a list of things, we use an object called <code>Array</code>.  Arrays can be created in javascript using square braces (<code>[</code>) like so: <code>['Avand', 'Rob', 'Sandi']</code></p>
+    for (var i = 0; i < movies.length; i++) {
+      alert(movies[i]["Title"]);
+    }
+  }
+});
 
-<p>Like the other javascript objects we've looked at so far, Arrays have properties and methods that you'll probably find useful:</p>
-
-<ul>
-  <li>
-    properties:
-    <ul>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a>: a count of the number of items in the array</li>
-    </ul>
-  </li>
-  <li>
-    methods:
-    <ul>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a>: adds an item to the array</li>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">pop</a>: removes an item from the array</li>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort</a>: sorts the items in the array</li>
-    </ul>
-  </li>
-</ul>
-
-<h3>Looping</h3>
-
-<p>
-  In javascript, when we want to execute some code some number of times, we can use the <code>forEach()</code> function.
-</p>
-
-<p>
-  For example, the following code will add a list item to a list for each item in the array <code>instructors</code>:
-</p>
-
-<pre><code>
-  var instructors = ['Avand', 'Rob', 'Sandi'];<br>
-  var list = document.querySelector('ul');<br><br>
-
-  function listInstructor(instructor) {<br>
-    var item = document.createElement('li');<br>
-    item.textContent = instructor;<br>
-    list.appendChild(item);
-  }<br><br>
-
-  instructors.forEach(listInstructor);
+// Open the connection and send it on its merry way
+xhr.open("GET", url);
+xhr.send();
 </code></pre>
 
-<h3>document.querySelectorAll</h3>
+<h2>Firebase</h2>
+<p> What is it? Firebase makes a number of products for software developers building mobile or web applications.
+  They take care of hosting the database and the back-end code, so you can just connect your front-end code and have persistent data --
+  aka data on your web page doesn't reset every time you refresh the page!
+</p>
+<p>Get started with <a href="https://www.firebase.com/" target="_blank">Firebase</a>
+  <ul>
+    <li>Sign up for an account</li>
+    <li>Read the documentation on the <a href="https://www.firebase.com/docs/web/quickstart.html" target="_blank">Quickstart</a> page.</li>
+    <li>Check out the "Chat" code in the Examples section. We're making an app just like this one!</li>
+    <li>As noted in Step 2 of the guides, copy the <strong>script</strong> tag into the head of your application to get access to the Firebase library (all their variables and methods).</li>
+  </ul>
+</p>
+<p>
+  How to add a new item to the Firebase database:
+</p>
 
-<p><code>document.querySelectorAll</code> is another very useful function available in web browsers. This function can be used to get many items from the document based on a selector.</p>
+<pre><code>var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
 
-<p>It works just like <code>document.querySelector</code>, but instead of returning an <code>Element</code> object, <code>document.querySelectorAll</code> returns a <code>NodeList</code>, which is functionally like an array of <code>Element</code> objects (though it's actually its own object)</p>
+// Sample data object, any key-value pairs will work
+var mustang = {
+  make: "ford",
+  color: "red"
+}
 
-<p>The following code shows an example of how you might get all the <code>&lt;li&gt;</code> elements on the page and log their text content to the console:</p>
+// Push new object to our database
+firebase.push(mustang);
 
-<pre><code>var listItems = document.querySelectorAll('li');<br/>for (var i = 0; i < listItems.length; i++) {<br/>&nbsp;&nbsp;console.log(listItems[i].textContent);<br/>}</code></pre>
+// Create an event listener for the 'child_added' event
+// This is a method Firebase gives us access to
+// It listens for anything new getting added to our database
+firebase.on("child_added", function (snapshot) {
+  // A "snapshot" is a special Firebase concept. Just know that calling val()
+  // will give you back the data stored in the database.
+  var data = snapshot.val();
+  console.log(data);
+})
+</code></pre>
+
+<h2>Local Storage</h2>
+<ul>
+  <li>It's on your computer (as opposed to Firebase which is hosted somewhere else)</li>
+  <li>5 mb of storage space</li>
+</ul>
+<p>
+  Some useful Local Storage commands:
+</p>
+<pre><code>// To clear local storage (remove all entries)
+localStorage.clear();
+
+// To save something to local storage - similar to what firebase.push did above
+localStorage.setItem("username", "avandamiri12345");
+
+// Get or read something from Local Storage
+localStorage.getItem("username");
+</code></pre>
+
+<p>
+  In your application, you might use this to remember a user's username, even after a page refresh
+</p>
+
+<pre><code>// On page load, check Local Storage to see if there's already a username
+var username = localStorage.getItem("username");
+
+// If there is no username, ask the user and set value in local storage
+if (username == null) {
+  username = prompt("What is your username?");
+  localStorage.setItem("username", username);
+}
+</code></pre>
+
+
+<link rel="stylesheet" href="../styles/all.css" media="screen" title="All styles" charset="utf-8">
+<script type="text/javascript" src="../scripts/carousels.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/railscasts.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/languages/javascript.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
